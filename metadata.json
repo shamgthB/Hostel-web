@@ -1,0 +1,6 @@
+{
+  "name": "Hostel Management System",
+  "description": "Complete hostel management application for owners and residents to manage rooms, residents, fees, notices, and complaints.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
