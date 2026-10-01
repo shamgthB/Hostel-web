@@ -1,6 +1,6 @@
 {
   "name": "Hostel Management System",
-  "description": "Complete hostel management application for owners and residents to manage rooms, residents, fees, notices, and complaints.",
+  "description": "Complete hostel management application for owners and residents to manage rooms, residents, fees, notices, complaints, local neighborhood exploration with Google Maps, and AI music generation with Google Lyria.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

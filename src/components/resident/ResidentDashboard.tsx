@@ -14,6 +14,8 @@ import {
   Clock,
   CheckCircle2,
   Calendar,
+  MapPin,
+  Music,
 } from 'lucide-react';
 
 interface ResidentDashboardProps {
@@ -249,6 +251,59 @@ export const ResidentDashboard: React.FC<ResidentDashboardProps> = ({ onNavigate
                 </div>
               ))
             )}
+          </div>
+        </div>
+      </div>
+
+      {/* New AI & Grounded Services: Nearby Explorer & Music Lounge */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {/* Nearby Explorer Card */}
+        <div
+          onClick={() => onNavigate('nearby')}
+          className="bg-gradient-to-br from-emerald-900 via-teal-900 to-stone-900 rounded-xl p-5 text-white cursor-pointer hover:shadow-md transition-all group relative overflow-hidden"
+        >
+          <div className="flex items-start justify-between">
+            <div className="w-10 h-10 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center border border-emerald-400/30">
+              <MapPin className="w-5 h-5" />
+            </div>
+            <span className="text-[11px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded bg-emerald-500/30 text-emerald-200 border border-emerald-400/30">
+              Google Maps
+            </span>
+          </div>
+          <h3 className="text-base font-bold text-white mt-3 group-hover:text-emerald-300 transition-colors">
+            Nearby & Neighborhood Guide
+          </h3>
+          <p className="text-xs text-stone-300 mt-1 leading-relaxed">
+            Find study cafes with Wi-Fi, 24/7 pharmacies, cheap student food, and metro transit around your hostel.
+          </p>
+          <div className="flex items-center gap-1 text-xs text-emerald-400 font-semibold mt-3">
+            <span>Explore places</span>
+            <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+          </div>
+        </div>
+
+        {/* Music Lounge Card */}
+        <div
+          onClick={() => onNavigate('music')}
+          className="bg-gradient-to-br from-purple-900 via-indigo-900 to-stone-900 rounded-xl p-5 text-white cursor-pointer hover:shadow-md transition-all group relative overflow-hidden"
+        >
+          <div className="flex items-start justify-between">
+            <div className="w-10 h-10 rounded-lg bg-purple-500/20 text-purple-400 flex items-center justify-center border border-purple-400/30">
+              <Music className="w-5 h-5" />
+            </div>
+            <span className="text-[11px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded bg-purple-500/30 text-purple-200 border border-purple-400/30">
+              Google Lyria
+            </span>
+          </div>
+          <h3 className="text-base font-bold text-white mt-3 group-hover:text-purple-300 transition-colors">
+            Study & Music Lounge
+          </h3>
+          <p className="text-xs text-stone-300 mt-1 leading-relaxed">
+            Generate custom exam lofi beats, rain soundscapes, dorm sleep ambience, and download tracks with AI.
+          </p>
+          <div className="flex items-center gap-1 text-xs text-purple-300 font-semibold mt-3">
+            <span>Compose music</span>
+            <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
           </div>
         </div>
       </div>

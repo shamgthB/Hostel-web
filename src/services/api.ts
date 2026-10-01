@@ -144,4 +144,67 @@ export const api = {
     request<any>(`/notices/${id}`, { method: 'PUT', body: JSON.stringify(data) }),
   deleteNotice: (id: string) =>
     request<{ message: string }>(`/notices/${id}`, { method: 'DELETE' }),
+
+  // Maps Grounding (using gemini-3.5-flash with googleMaps tool)
+  searchMaps: (data: { query?: string; category?: string; location?: string; latLng?: { latitude: number; longitude: number } }) =>
+    request<{
+      text: string;
+      places: Array<{
+        id: string;
+        title: string;
+        uri: string;
+        reviewSnippets: string[];
+        address?: string;
+      }>;
+      groundingMetadata?: any;
+    }>('/maps/search', {
+      method: 'POST',
+      body: JSON.stringify(data),
+    }),
+
+  // Music Generation (Lyria clip / pro)
+  getMusicTracks: () =>
+    request<Array<{
+      id: string;
+      title: string;
+      genre: string;
+      prompt: string;
+      model: 'lyria-3-clip-preview' | 'lyria-3-pro-preview';
+      durationSeconds: number;
+      mimeType: string;
+      audioBase64: string;
+      lyrics?: string;
+      createdById: string;
+      createdByName: string;
+      createdAt: string;
+    }>>('/music/tracks'),
+
+  generateMusic: (data: {
+    prompt: string;
+    modelType: 'clip' | 'full';
+    title?: string;
+    genre?: string;
+    imageBase64?: string;
+    imageMimeType?: string;
+  }) =>
+    request<{
+      id: string;
+      title: string;
+      genre: string;
+      prompt: string;
+      model: 'lyria-3-clip-preview' | 'lyria-3-pro-preview';
+      durationSeconds: number;
+      mimeType: string;
+      audioBase64: string;
+      lyrics?: string;
+      createdById: string;
+      createdByName: string;
+      createdAt: string;
+    }>('/music/generate', {
+      method: 'POST',
+      body: JSON.stringify(data),
+    }),
+
+  deleteMusicTrack: (id: string) =>
+    request<{ message: string }>(`/music/tracks/${id}`, { method: 'DELETE' }),
 };

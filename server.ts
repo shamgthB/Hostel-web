@@ -9,6 +9,8 @@ import residentsRouter from './server/routes/residents.js';
 import feesRouter from './server/routes/fees.js';
 import complaintsRouter from './server/routes/complaints.js';
 import noticesRouter from './server/routes/notices.js';
+import mapsRouter from './server/routes/maps.js';
+import musicRouter from './server/routes/music.js';
 
 async function startServer() {
   const app = express();
@@ -30,6 +32,8 @@ async function startServer() {
   app.use('/api/fees', feesRouter);
   app.use('/api/complaints', complaintsRouter);
   app.use('/api/notices', noticesRouter);
+  app.use('/api/maps', mapsRouter);
+  app.use('/api/music', musicRouter);
 
   // Vite middleware in development; Static dist in production
   if (process.env.NODE_ENV !== 'production') {

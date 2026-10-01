@@ -22,6 +22,10 @@ import { ResidentFees } from './components/resident/ResidentFees';
 import { ResidentNotices } from './components/resident/ResidentNotices';
 import { ResidentProfile } from './components/resident/ResidentProfile';
 
+// Maps and Music Views
+import { HostelMapsExplorer } from './components/maps/HostelMapsExplorer';
+import { HostelMusicStudio } from './components/music/HostelMusicStudio';
+
 const MainLayout: React.FC = () => {
   const { user, loading } = useAuth();
   const [authMode, setAuthMode] = useState<'login' | 'register'>('login');
@@ -87,6 +91,10 @@ const MainLayout: React.FC = () => {
           return <ComplaintManagement />;
         case 'notices':
           return <NoticeManagement />;
+        case 'nearby':
+          return <HostelMapsExplorer />;
+        case 'music':
+          return <HostelMusicStudio />;
         default:
           return <OwnerDashboard onNavigate={handleNavigate} onOpenReceipt={handleOpenReceipt} />;
       }
@@ -102,6 +110,10 @@ const MainLayout: React.FC = () => {
           return <ResidentNotices />;
         case 'profile':
           return <ResidentProfile />;
+        case 'nearby':
+          return <HostelMapsExplorer />;
+        case 'music':
+          return <HostelMusicStudio />;
         default:
           return <ResidentDashboard onNavigate={handleNavigate} onOpenReceipt={handleOpenReceipt} />;
       }

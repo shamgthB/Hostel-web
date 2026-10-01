@@ -10,6 +10,8 @@ import {
   UserCheck,
   X,
   Building,
+  MapPin,
+  Music,
 } from 'lucide-react';
 
 interface SidebarProps {
@@ -49,6 +51,8 @@ export const Sidebar: React.FC<SidebarProps> = ({
       badge: pendingComplaintsCount > 0 ? pendingComplaintsCount : null,
     },
     { id: 'notices', label: 'Notice Board', icon: Bell },
+    { id: 'nearby', label: 'Nearby & Maps', icon: MapPin },
+    { id: 'music', label: 'Hostel Music Studio', icon: Music },
   ];
 
   const residentNavItems: NavItem[] = [
@@ -57,6 +61,8 @@ export const Sidebar: React.FC<SidebarProps> = ({
     { id: 'fees', label: 'Fees & Receipts', icon: CreditCard },
     { id: 'complaints', label: 'Report a Problem', icon: AlertCircle },
     { id: 'notices', label: 'Hostel Notices', icon: Bell },
+    { id: 'nearby', label: 'Nearby & Maps', icon: MapPin },
+    { id: 'music', label: 'Study & Music Lounge', icon: Music },
   ];
 
   const navItems: NavItem[] = isOwner ? ownerNavItems : residentNavItems;
